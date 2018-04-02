@@ -21,10 +21,6 @@ public class PointsSummaryViewHolder extends RecyclerView.ViewHolder {
     TextView pointsAccountNameText;
     TextView pointsAccountPointsText;
     ImageView pointsAccountAvatarImage;
-    TextView addPoints;
-    TextView removePoints;
-    EditText pointsToChange;
-    ClickHandler clickHandler;
 
     public PointsSummaryViewHolder(View itemView) {
         super(itemView);
@@ -32,37 +28,6 @@ public class PointsSummaryViewHolder extends RecyclerView.ViewHolder {
         this.pointsAccountNameText = (TextView) itemView.findViewById(R.id.pointsAccountNameText);
         this.pointsAccountPointsText = (TextView) itemView.findViewById(R.id.pointsAccountPointsText);
         this.pointsAccountAvatarImage = (ImageView) itemView.findViewById(R.id.pointsAccountAvatarImage);
-        this.addPoints = (TextView) itemView.findViewById(R.id.addPoint);
-        this.removePoints = (TextView) itemView.findViewById(R.id.removePoint);
-        this.pointsToChange = (EditText) itemView.findViewById(R.id.pointsToBeUpdated);
-
-        addPoints.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (!pointsToChange.getText().toString().isEmpty()) {
-                    //action: 1 = increase 0 = decrease
-                    clickHandler.componentClicked(getAdapterPosition(), 1, Integer.parseInt(pointsToChange.getText().toString()));
-
-                    pointsToChange.getText().clear();
-                }
-
-            }
-        });
-
-        removePoints.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (!pointsToChange.getText().toString().isEmpty()) {
-                    //action: 1 = increase 0 = decrease
-                    clickHandler.componentClicked(getAdapterPosition(), 0, Integer.parseInt(pointsToChange.getText().toString()));
-
-                    pointsToChange.getText().clear();
-                }
-
-            }
-        });
 
     }
 
